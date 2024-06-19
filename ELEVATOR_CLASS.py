@@ -2,6 +2,8 @@ from FLOOR_CLASS import *
 
 class Elevator:
 
+    
+
     def __init__(self, i):
         self.num_elv = i
         self.order_array = [] # In this array, all orders made for the elevator are saved, this includes the floor and the time of the travel to it
