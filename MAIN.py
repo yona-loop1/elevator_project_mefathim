@@ -1,7 +1,3 @@
-"""The order of the files is as follows:
-1. CONFIG; 2. FLOOR_CLASS; 3. ELEVATOR_CLASS; 4. BUILDING_CLASS; 5. MAIN;
-each file imports data from the previous one.
-the main file draws the screen to the game, and calls the building and elevator functions in loop."""
 import BUILDING_CLASS
 from BUILDING_CLASS import *
 

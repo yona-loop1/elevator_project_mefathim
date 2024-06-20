@@ -2,8 +2,6 @@ from FLOOR_CLASS import *
 
 class Elevator:
 
-
-
     def __init__(self, i):
         """
         creating variables that needed to activition of the elevators as detailed below
