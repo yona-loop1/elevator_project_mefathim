@@ -3,8 +3,13 @@ from CONFIG import *
 class Floor:
 
     def __init__(self, i):
-        # numbers, shape and position (in axis y) of the floors
+        """
+        creating variables that needed to drawing the elevators as detailed below
+        accepts i to counting the numbers of the elevators
+        return None
+        """
         self.num_floor = i
+        # shape and position (in axis y) of the floors
         self.shape_floor = pygame.image.load(BUILDING_BACKGROUND)
         self.shape_floor = pygame.transform.scale(self.shape_floor, (FLOOR_WIDTH, FLOOR_HEIGHT))
         self.y = SCREEN_HEIGHT - ((self.num_floor+1) * FLOOR_HEIGHT)
@@ -26,12 +31,22 @@ class Floor:
         
 
     def draw_full_floor(self, screen):
+        """
+        draws the floors on the screen
+        accepts variable 'screen' created in main file
+        return None
+        """
         self.draw_floor(screen)
         self.draw_button(screen)
         self.draw_timer(screen)
 
 
     def draw_floor(self, screen):
+        """
+        draws only the floors on the screen
+        accepts variable 'screen' created in main file
+        return None
+        """
         screen.blit(self.shape_floor, (BUILDING_POSITION_WIDTH, self.y))
         if self.num_floor != NUMBER_FLOORS - 1:
             pygame.draw.line(screen, LINE_COLOR, (BUILDING_POSITION_WIDTH, self.y + LINE_POSITION), (BUILDING_POSITION_WIDTH + FLOOR_WIDTH-1 ,self.y + LINE_POSITION) ,LINE_SPACE)
@@ -40,12 +55,22 @@ class Floor:
         
 
     def draw_button(self, screen):
+        """
+        draws only the buttons on the screen
+        accepts variable 'screen' created in main file
+        return None
+        """
         pygame.draw.rect(screen, (self.color), self.shape_button, 0, 4)
         screen.blit(self.text_button, self.text_react_button)
 
 
     def draw_timer(self, screen):
-        if self.show_timer: # this condition is because i don't want show timer only if the floor order a elevator
+        """
+        draws only the timers on the screen
+        accepts variable 'screen' created in main file
+        return None
+        """
+        if self.show_timer: # this condition is because i don't want show timer only if the floor orders a elevator
             pygame.draw.rect(screen, TIMER_COLOR, self.background_timer, 1, 5)
             self.shape_text_timer()
             text = self.font_timer.render(self.show_text_timer, True, TIMER_COLOR, None)
@@ -55,12 +80,21 @@ class Floor:
         
 
     def elevator_arrive(self, arrivel_time):
+        """
+        accepts the elevator arrival time to the floor, and update it in the data of the floor
+        return None
+        """
         self.start = time.time()
         self.arrivel_time, self.show_timer = arrivel_time, arrivel_time
         self.color = GREEN
 
 
-    def update_floor(self): # update the timer of elevator arrivel
+    def update_floor(self): 
+        """
+        updates the timer of elevator arrivel because the time changes as time passes by
+        accepts None
+        return None
+        """
         if self.show_timer:
             counting = time.time()
             if self.start + self.arrivel_time > counting:
@@ -70,7 +104,12 @@ class Floor:
                 self.color = BUTTON_COLOR
 
 
-    def shape_text_timer(self): # this function improve the shape of the timer to draw it on the screen 
+    def shape_text_timer(self): 
+        """
+        this function improve the shape of the timer for the purpose draw it better on the screen
+        accepts None
+        return None
+        """ 
         text = str(self.show_timer)
         text = text.replace('.', ':')
         zero = '0'

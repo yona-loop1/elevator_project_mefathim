@@ -3,12 +3,12 @@ import time
 import math
 import random
 
-# screen's size etc
+# screen's size and color
 SCREEN_WIDTH =  700
 SCREEN_HEIGHT = 700
 SCREEN_BACKGROUND = [200, 200, 200]
 
-# building's size etc
+# building's size and color\image
 BUILDING_POSITION_WIDTH = SCREEN_WIDTH//100*15
 BUILDING_POSITION_HEIGHT = 0
 BUILDING_BACKGROUND = 'reference files/bricks.jpg'
@@ -20,12 +20,12 @@ NUMBER_FLOORS = random.randint(MIN_FLOORS, MAX_FLOORS)
 FLOOR_HEIGHT = SCREEN_HEIGHT//NUMBER_FLOORS
 FLOOR_WIDTH = 4*FLOOR_HEIGHT
 
-# line's configuration (the line that is between two floors)
+# line's configuration (which is drawn between two floors)
 LINE_SPACE = 7
 LINE_POSITION = LINE_SPACE//2
 LINE_COLOR = [0, 0, 0]
 
-# button's configuration (the button that is ordering a elevator)
+# button's configuration (which he orderes an elevator)
 BUTTON_WIDTH = FLOOR_WIDTH//6
 BUTTON_HEIGHT = BUTTON_WIDTH
 BUTTON_POSITION_X = BUILDING_POSITION_WIDTH + FLOOR_WIDTH//2 - BUTTON_WIDTH//2
@@ -37,7 +37,7 @@ BUTTON_COLOR = [0, 180, 160]
 BUTTONS_TEXT_COLOR = [0, 0, 0]
 GREEN = [0, 255, 0]
 
-# timer's configuration (the timer of the elevator arrival)
+# timer's configuration (which he show the elevator's arrival time)
 TIMER_WIDTH = 33*FLOOR_WIDTH//100
 TIMER_HEIGHT = 80*BUTTON_HEIGHT//100
 TIMER_COLOR = [0, 255, 90]
